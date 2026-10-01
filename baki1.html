@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elanım.az — VIP elanlar</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #17202a;
+    }
+
+    header {
+      background: #1264d8;
+      color: #fff;
+      padding: 22px 16px;
+    }
+
+    .wrap {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+    }
+
+    .sub {
+      opacity: .9;
+    }
+
+    .hero {
+      background: #1264d8;
+      color: #fff;
+      padding: 10px 16px 28px;
+    }
+
+    .search {
+      display: flex;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .search input,
+    .search select {
+      padding: 13px;
+      border: 0;
+      border-radius: 8px;
+      flex: 1;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 18px 0;
+      box-shadow: 0 2px 12px #00000010;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .grid input,
+    .grid select,
+    .grid textarea {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .grid textarea {
+      min-height: 90px;
+      grid-column: 1 / -1;
+    }
+
+    button {
+      background: #1264d8;
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      cursor: pointer;
+    }
+
+    .vipbtn {
+      background: #e5a900;
+    }
+
+    .ads {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .ad {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px #00000012;
+    }
+
+    .ad img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .body {
+      padding: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffd43b;
+      color: #6b4b00;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .muted {
+      color: #667085;
+      font-size: 13px;
+    }
+
+    .vipbox {
+      border: 2px solid #ffd43b;
+      background: #fffdf0;
+    }
+
+    @media (max-width: 650px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Elanım.az</h1>
+    <div class="sub">Elan yerləşdir, alıcı tap.</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+
+    <div class="search">
+      <input id="q" placeholder="Elan axtar...">
+
+      <select id="filter">
+        <option value="">Bütün kateqoriyalar</option>
+        <option>Daşınmaz əmlak</option>
+        <option>Avtomobil</option>
+        <option>Telefon</option>
+        <option>İş elanları</option>
+        <option>Alış-veriş</option>
+        <option>Digər</option>
+      </select>
+    </div>
+
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="card">
+
+    <h2>Elan yerləşdir</h2>
+
+    <form id="form" enctype="multipart/form-data">
+
+      <div class="grid">
+
+        <input
+          name="title"
+          placeholder="Elanın başlığı"
+          required
+        >
+
+        <select name="category" required>
+          <option value="">Kateqoriya seç</option>
+          <option>Daşınmaz əmlak</option>
+          <option>Avtomobil</option>
+          <option>Telefon</option>
+          <option>İş elanları</option>
+          <option>Alış-veriş</option>
+          <option>Digər</option>
+        </select>
+
+        <input
+          name="price"
+          type="number"
+          step="0.01"
+          placeholder="Qiymət (AZN)"
+        >
+
+        <input
+          name="phone"
+          placeholder="Telefon"
+        >
+
+        <textarea
+          name="description"
+          placeholder="Elanın təsviri"
+        ></textarea>
+
+        <input
+          name="image"
+          type="file"
+          accept="image/*"
+        >
+
+      </div>
+
+      <br>
+
+      <button type="submit">
+        Elanı yerləşdir
+      </button>
+
+    </form>
+
+  </div>
+
+  <div class="card vipbox">
+
+    <h2>⭐ VIP elan</h2>
+
+    <p>
+      VIP elanlar siyahının yuxarısında göstərilir.
+    </p>
+
+    <b>
+      3 gün — 2 AZN |
+      7 gün — 5 AZN |
+      30 gün — 15 AZN
+    </b>
+
+  </div>
+
+  <h2>Elanlar</h2>
+
+  <div id="ads" class="ads"></div>
+
+</main>
+
+<script>
+
+  let all = [];
+
+  async function load() {
+    try {
+      const response = await fetch("/api/ads");
+      all = await response.json();
+      render();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  function render() {
+
+    const q = document
+      .getElementById("q")
+      .value
+      .toLowerCase();
+
+    const category =
+      document.getElementById("filter").value;
+
+    const list = all.filter(ad => {
+
+      const matchesCategory =
+        !category || ad.category === category;
+
+      const text =
+        (ad.title || "") +
+        " " +
+        (ad.description || "");
+
+      const matchesSearch =
+        text.toLowerCase().includes(q);
+
+      return matchesCategory && matchesSearch;
+    });
+
+    document.getElementById("ads").innerHTML =
+      list.map(ad => {
+
+        const vip =
+          ad.is_vip &&
+          ad.vip_until &&
+          new Date(
+            ad.vip_until.replace(" ", "T") + "Z"
+          ) > new Date();
+
+        return `
+          <article class="ad">
+
+            ${
+              ad.image
+                ? `<img src="${ad.image}" alt="Elan şəkli">`
+                : ""
+            }
+
+            <div class="body">
+
+              ${
+                vip
+                  ? '<span class="badge">⭐ VIP</span>'
+                  : ""
+              }
+
+              <h3>${escapeHtml(ad.title)}</h3>
+
+              <div class="price">
+                ${
+                  ad.price
+                    ? Number(ad.price).toFixed(2) + " AZN"
+                    : "Qiymət göstərilməyib"
+                }
+              </div>
+
+              <div class="muted">
+                ${escapeHtml(ad.category || "")}
+                ·
+                ${escapeHtml(ad.phone || "")}
+              </div>
+
+              <p>
+                ${escapeHtml(ad.description || "")}
+              </p>
+
+              ${
+                !vip
+                  ? `
+                    <button
+                      class="vipbtn"
+                      onclick="makeVip(${ad.id})"
+                    >
+                      ⭐ VIP et
+                    </button>
+                  `
+                  : "<span class='muted'>VIP aktivdir</span>"
+              }
+
+            </div>
+
+          </article>
+        `;
+
+      }).join("") ||
+      "<p>Hələ elan yoxdur.</p>";
+  }
+
+  async function makeVip(id) {
+
+    const days = prompt(
+      "VIP müddəti: 3, 7 və ya 30 gün",
+      "7"
+    );
+
+    if (!["3", "7", "30"].includes(days)) {
+      alert("3, 7 və ya 30 gün seçin.");
+      return;
+    }
+
+    const response = await fetch(
+      "/api/ads/" + id + "/vip",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          days: Number(days)
+        })
+      }
+    );
+
+    if (response.ok) {
+      alert("VIP aktivləşdirildi.");
+      load();
+    } else {
+      alert("Xəta baş verdi.");
+    }
+  }
+
+  document
+    .getElementById("form")
+    .addEventListener("submit", async function(event) {
+
+      event.preventDefault();
+
+      const formData =
+        new FormData(event.target);
+
+      const response = await fetch(
+        "/api/ads",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+      if (response.ok) {
+        event.target.reset();
+        alert("Elan əlavə edildi.");
+        load();
+      } else {
+        alert("Elan əlavə olunmadı.");
+      }
+
+    });
+
+  document
+    .getElementById("q")
+    .addEventListener("input", render);
+
+  document
+    .getElementById("filter")
+    .addEventListener("change", render);
+
+  function escapeHtml(value) {
+
+    return String(value).replace(
+      /[&<>"']/g,
+      function(character) {
+
+        const entities = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        };
+
+        return entities[character];
+      }
+    );
+  }
+
+  load();
+
+</script>
+
+</body>
+</html>
